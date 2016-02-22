@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ page.node.name }}{% endblock %}
+{% block description %}{{ page.node.getProperty('meta_description') }}{% endblock %}
+
+{% block header %}
+    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'header', 'page': page, 'renderer': renderer }) }}
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="medium-3 columns">
+            <section class="navigation">
+                <ul id="primary-navigation">{{ render(controller('CoralSiteBundle:Default:menu', { 'max_level': 3, 'uri': page.node.uri })) }}</ul>
+            </section>
+            <script>
+                var activeNodes = document.getElementById("primary-navigation").getElementsByClassName("active");
+                for(i = 0; i < activeNodes.length; ++i)
+                {
+                    var topLevelNavigation = activeNodes[i];
+                    while(topLevelNavigation.parentNode.id != "primary-navigation")
+                    {
+                        topLevelNavigation = topLevelNavigation.parentNode;
+                    }
+
+                    var siblings = topLevelNavigation.parentNode.childNodes;
+                    for(j = 0; j < siblings.length; ++j)
+                    {
+                        if(topLevelNavigation != siblings[j])
+                        {
+                            siblings[j].style.display = "none";
+                        }
+                    }
+                }
+            </script>
+        </div>
+        <div class="medium-9 columns">
+            <section class="content">
+                <h1>{{ page.node.name }}</h1>
+                <hr />
+                {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'main', 'page': page, 'renderer': renderer }) }}
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'footer', 'page': page, 'renderer': renderer }) }}
+{% endblock %}
+
+{% block assets %}
+    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'assets', 'page': page, 'renderer': renderer }) }}
+{% endblock %}

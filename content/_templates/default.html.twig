@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ page.node.name }}{% endblock %}
+{% block description %}{{ page.node.getProperty('meta_description') }}{% endblock %}
+
+{% block header %}
+    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'header', 'page': page, 'renderer': renderer }) }}
+{% endblock %}
+
+{% block main %}
+    <section id="main" class="main">
+        {% if page.node.getProperty('show_submenu') %}
+            <div class="row">
+                <div class="medium-4 small-12 columns">
+                    <nav class="documentation">
+                        <ul>
+                            {{ render(controller('CoralSiteBundle:Default:menu', { 'max_level': 3, 'uri': page.node.uri })) }}
+                        </ul>
+                    </nav>
+                </div>
+                <div class="medium-8 small-12 columns">
+                    <h1>{{ page.node.name }}</h1>
+
+                    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'main', 'page': page, 'renderer': renderer }) }}
+                </div>
+            </div>
+        {% else %}
+            <div class="row align-center">
+                <div class="medium-8 small-12 columns">
+                    <h1>{{ page.node.name }}</h1>
+
+                    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'main', 'page': page, 'renderer': renderer }) }}
+                </div>
+            </div>
+        {% endif %}}
+    </section>
+{% endblock %}
+
+{% block footer %}
+    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'footer', 'page': page, 'renderer': renderer }) }}
+{% endblock %}
+
+{% block assets %}
+    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'assets', 'page': page, 'renderer': renderer }) }}
+{% endblock %}

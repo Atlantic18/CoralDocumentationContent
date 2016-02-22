@@ -1,0 +1,3 @@
+### About Coral
+
+**Coral** is being developed as an open-source project by Inventic a company behind Skipper. **Skipper** is a tool for visual representation of ORM entities with definition import/export features. If you're a Symfony developer [check out the result of our work](https://www.skipper18.com) and see how much easier your life can be (well just the development part of your life :-). **Coral** is backing all our websites and will be developed and maintained for quite a long time.

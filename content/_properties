@@ -1,0 +1,5 @@
+Lightweight Web Platform
+
+template: @coral/_templates/homepage.html.twig
+keywords:"Skipper, Doctrine, Doctrine2, Propel, CakePHP, ORM, definitions"
+description:"Skipper help site"

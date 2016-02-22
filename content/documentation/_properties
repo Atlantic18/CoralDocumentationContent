@@ -1,0 +1,5 @@
+Documentation
+
+tree_template: @coral/_templates/default.html.twig
+tree_show_submenu: true
+redirect: /documentation/quick-start/installation

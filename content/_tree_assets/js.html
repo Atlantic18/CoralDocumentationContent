@@ -1,0 +1,9 @@
+<script>
+    $(document).ready(function() {
+        $("code").each(function() {
+            $(this).attr("data-language", this.className);
+        });
+        Rainbow.color();
+        $(document).foundation();
+    });
+</script>

@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ page.node.name }}{% endblock %}
+{% block description %}{{ page.node.getProperty('meta_description') }}{% endblock %}
+
+{% block header %}
+    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'header', 'page': page, 'renderer': renderer }) }}
+{% endblock %}
+
+{% block main %}
+    <section class="main">
+        {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'main', 'page': page, 'renderer': renderer }) }}
+    </section>
+{% endblock %}
+
+{% block footer %}
+    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'footer', 'page': page, 'renderer': renderer }) }}
+{% endblock %}
+
+{% block assets %}
+    {{ include('CoralSiteBundle:Default:area.html.twig', { 'name': 'assets', 'page': page, 'renderer': renderer }) }}
+{% endblock %}
